@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee Philippines | Voucher Inside!</title>
+    
+    <meta property="og:title" content="Shopee Philippines | Voucher Inside!">
+    <meta property="og:description" content="Https://ph.shp.ee/WXjyrxf">
+    <meta property="og:image" content="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/ca5a12a1309109bc4139.png">
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff0f3;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 350px;
+            width: 90%;
+        }
+
+        .main-img {
+            width: 100%;
+            max-height: 300px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 1.5rem;
+        }
+
+        .btn-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            min-height: 50px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #yesBtn { background-color: #ff4d6d; color: white; z-index: 100; }
+        #noBtn { background-color: #adb5bd; color: white; position: relative; }
+        #success-page { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="card">
+        <div id="question-page">
+            <img src="https://i.pinimg.com/736x/87/43/40/874340d216f58479a073f1d8c9735a2b.jpg" class="main-img" alt="Valentine Image">
+            <h1>Will you be my valentine? 🩷💛</h1>
+            <div class="btn-wrap">
+                <button id="yesBtn">Yes!</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+
+        <div id="success-page">
+            <img src="https://i.pinimg.com/originals/f3/f1/35/f3f13506822c54780517726588691060.gif" class="main-img" alt="Happy Image">
+            <h1>YAYY I LOVEE YOUU!! 🩷💛</h1>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const questionPage = document.getElementById('question-page');
+        const successPage = document.getElementById('success-page');
+
+        let scale = 1;
+
+        function avoidNo() {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+
+            scale += 0.5;
+            yesBtn.style.transform = `scale(${scale})`;
+            if(scale > 10) noBtn.style.display = 'none';
+        }
+
+        noBtn.addEventListener('mouseover', avoidNo);
+        noBtn.addEventListener('click', avoidNo);
+
+        yesBtn.addEventListener('click', () => {
+            questionPage.style.display = 'none';
+            successPage.style.display = 'block';
+            document.body.style.backgroundColor = '#ffb3c1';
+        });
+    </script>
+</body>
+</html>
